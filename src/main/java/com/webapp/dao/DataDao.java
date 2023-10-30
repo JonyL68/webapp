@@ -30,7 +30,7 @@ public interface DataDao {
 
     //LastPay getLastPay(Double pay, String account, Integer ter);
 
-    void truncateLastpay();
+  //  void truncateLastpay();
 
     //Setup getSetup(Long id);
 

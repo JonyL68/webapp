@@ -21,6 +21,21 @@ public class DataDaoImpl implements DataDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Override
+    public List<Teritory> getTeritory() {
+        return null;
+    }
+
+    @Override
+    public ErNew read(int territory, String account) {
+        return null;
+    }
+
+    @Override
+    public Teritory getTerritory(int territory) {
+        return null;
+    }
+
 /*    @Override
     public void saveBankData(Refrec_data refrec_data) {
         try (Session session = sessionFactory.openSession()) {
@@ -79,10 +94,10 @@ public class DataDaoImpl implements DataDao {
 
         }*/
 
-        Teritory teritory = sessionFactory.getCurrentSession().createQuery(
+ /*       Teritory teritory = sessionFactory.getCurrentSession().createQuery(
                 "from Teritory as r where r.id = :id", Teritory.class)
                 .setParameter("id", user.getTerritory())
-                .uniqueResult();
+                .uniqueResult();  */
 
   /*      BaseEmail baseMailForCheck = getBaseMailForCheck(user.getEmail(), user.getAccount(), teritory.getPindex());
 
@@ -154,23 +169,23 @@ public class DataDaoImpl implements DataDao {
         }
     }
 */
-    @Override
-    public List<Teritory> getTeritory() {
+ /*   @Override
+      public List<Teritory> getTeritory() {
         return sessionFactory.getCurrentSession().createQuery(
                 "from Teritory", Teritory.class)
                 .list();
-    }
+    } */
 
-    @Override
+ /*   @Override
     public void truncateLastpay() {
 
-    }
+    }*/
 
-    @Override
+ /*   @Override
     public ErNew read(int territory, String account) {
         return null;
     }
-
+*/
  /*   @Override
     public LastPay getLastPay(Double pay, String account, Integer ter) {
         return sessionFactory.getCurrentSession().createQuery(
@@ -241,13 +256,13 @@ public class DataDaoImpl implements DataDao {
  //               .uniqueResult();
  //   }
 
-    @Override
+/*    @Override
     public Teritory getTerritory(int territory) {
         return sessionFactory.getCurrentSession().createQuery(
                         "from Teritory as r where r.id = :id", Teritory.class)
                 .setParameter("id", territory)
                 .uniqueResult();
     }
-
+*/
 
 }
