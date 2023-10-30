@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 
     @Controller
     public class ErNewController {
-        private final ErNewService erNewService;
+        private ErNewService erNewService;
 
-        public ErNewController(ErNewService erNewService) {
-            this.erNewService = erNewService;
-        }
+ //      public ErNewController(ErNewService erNewService) {
+  //          this.erNewService = erNewService;
+  //      }
 
-        @GetMapping("/user/{id}")
+    /*    @GetMapping("/user/{id}")
         public String getUser(@PathVariable Long id, Model model) {
             User user = userService.getUserById(id);
             model.addAttribute("user", user);
             return "user";
-        }
-
+        } */
+/*
         @PostMapping("/user")
         public String saveUser(User user) {
             userService.saveUser(user);
             return "redirect:/";
-        }
+        } */
     }
 
 
