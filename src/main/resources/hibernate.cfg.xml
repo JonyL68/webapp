@@ -21,6 +21,7 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hibernate.hbm2ddl.auto">update</property>
         <!-- Mention annotated class -->
-        <mapping class="com.webapp.models.ErNew"/>
+        <mapping class="com.webapp.model.ErNew"/>
+        <mapping class="com.webapp.model.Teritory"/>
     </session-factory>
 </hibernate-configuration>
