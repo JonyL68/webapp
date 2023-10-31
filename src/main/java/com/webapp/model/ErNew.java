@@ -13,21 +13,22 @@ public class ErNew {
 
 
     @Id
-    @Column(name = "territory")
-    public Integer getTerritory() {
-        return territory;
-    }
-    public void setTerritory(Integer territory) {
-        this.territory = territory;
-    }
-
-    @Basic
     @Column(name = "account")
     public String getAccount() {
         return account;
     }
     public void setAccount(String account) {
         this.account = account;
+    }
+
+
+    @Basic
+    @Column(name = "territory")
+    public Integer getTerritory() {
+        return territory;
+    }
+    public void setTerritory(Integer territory) {
+        this.territory = territory;
     }
 
     @Basic
