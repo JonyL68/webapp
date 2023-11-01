@@ -1,14 +1,8 @@
 package com.webapp.dao;
 
-import org.apache.catalina.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import com.webapp.model.ErNew;
 
-public class ErNewRepository {
-
-    public interface ErNewRepositoryImpl extends JpaRepository<User, Long> {
-        // Можно добавить специфичные методы для доступа к данным
-    }
-
-
-
+public interface ErNewRepository extends JpaRepository<ErNew, Long> {
+    ErNew findByAccount(String account);
 }

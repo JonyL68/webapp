@@ -1,0 +1,69 @@
+(function () {
+    let ter = $('#unit');
+    ter.prop('selectedIndex', 0);
+    $.getJSON('./getTerritory', function (data) {
+        $.each(data, function (key, entry) {
+            ter.append($('<option></option>').attr('value', entry.id).text(entry.nameForSite));
+        });
+    });
+
+    $('#account').mask('Z#', {
+        translation: {
+            'Z': {
+                pattern: /[0-9]/, optional: true
+            }
+        },
+    });
+
+    var unit = $('#unit').children("option:selected").val();
+
+    $("#account").on('input', function () {
+        $("#account_error").hide();
+        $("#account").removeClass("important").addClass("important1");
+    });
+
+    $('#unit').change(function () {
+        $("#unit_error").hide();
+        $("#unit").removeClass("important1").addClass("important");
+    });
+
+    $('#dd').click(function () {
+        $("#alert_ind_s1").hide();
+        $("#alert_ind").hide();
+        $("#alert_ind_s").hide();
+
+        var not_send = false;
+
+        var unit = $('#unit').children("option:selected").val();
+        if (unit === '') {
+            not_send = true;
+            $("#unit").removeClass("important1").addClass("important");
+            $("#unit_error").show();
+        }
+
+        var account = $("#account").val();
+        if (account === "") {
+            not_send = true;
+            $("#account_error").show();
+            $("#account").removeClass("important1").addClass("important");
+        }
+
+        if (!not_send) {
+            // Выполняйте запрос к серверу, чтобы получить адрес по номеру счета
+            var address = getAddressByAccountNumber(account);
+
+            // Заполняйте вторую label (id="pay") адресом
+            $("#pay").html('<small class="text-muted">(' + address + ')</small>');
+
+            // Остальной код обработки формы
+            // ...
+        }
+    });
+
+    function getAddressByAccountNumber(accountNumber) {
+        // Ваш код запроса на сервере для получения адреса по номеру счета
+        // Вместо этого заглушка - вставьте ваш реальный код запроса
+        return "123 Main St, City";
+    }
+
+})();
