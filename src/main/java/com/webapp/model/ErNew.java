@@ -1,56 +1,45 @@
 package com.webapp.model;
 
-import javax.persistence.*;
-import javax.persistence.*;
-import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Entity
 @Table(name = "er_new", schema = "refrec")
-public class ErNew {
 
-    private Integer territory;
+public class ErNew {
+    @Id
     private String account;
+
     private String adress;
 
+    private int territory;
 
-    @Id
-    @Column(name = "account")
+
+
+// геттеры и сеттеры
     public String getAccount() {
-        return account;
-    }
+    return account;
+}
+
     public void setAccount(String account) {
         this.account = account;
     }
 
 
-    @Basic
-    @Column(name = "territory")
-    public Integer getTerritory() {
-        return territory;
-    }
-    public void setTerritory(Integer territory) {
-        this.territory = territory;
-    }
-
-    @Basic
-    @Column(name = "adress")
     public String getAdress() {
         return adress;
     }
+
     public void setAdress(String adress) {
         this.adress = adress;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ErNew ernew = (ErNew) o;
-        return Objects.equals(adress, ernew.adress) && Objects.equals(account, ernew.account) && Objects.equals(territory, ernew.territory);
+    public int getTerritory() {
+        return territory;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(adress, account, territory);
+    public void setTerritory(int territory) {
+        this.territory = territory;
     }
 }

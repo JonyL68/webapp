@@ -1,0 +1,57 @@
+#logo {
+    max-width: 100%;
+}
+
+@media screen and  (max-width: 576px) {
+    #logo_text {
+        font-size: 80%;
+    }
+}
+
+.container {
+    max-width: 960px;
+}
+
+body {
+    color: #565758 !important;
+    background-color: #757575 !important;
+}
+
+.icon-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.icon-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: .9rem;
+}
+
+.icon-list li::before {
+    display: block;
+    flex-shrink: 0;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: .5rem;
+    content: "";
+    background: url('../images/ok.png') no-repeat center center / 100% auto;
+}
+
+.important {
+    border: 1px solid #dc3545 !important;
+}
+
+.important1 {
+    border: 1px solid #ced4da !important;
+}
+
+.important3 {
+    color: #dc3545 !important;
+}
+
+.important4 {
+    color: #757575 !important;
+}
+
+

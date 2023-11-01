@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Шановні споживачі! Ми пропонуємо скористатися сучасними онлайн-сервісами для отримання рахунків.">
+    <title th:text="${title}"></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+<form class="needs-validation" novalidate>
+    <div class="container" style="margin-bottom: 25px;">
+        <div class="row row-cols-1 row-cols-md-12 mb-12 text-center" style="margin-top: .5rem !important;">
+            <div class="col">
+                <div class="card mb-2 rounded-3 shadow-sm">
+                    <div class="card-body">
+                        <header class="d-flex flex-column flex-md-row align-items-center pb-3 mb-2 border-bottom">
+                            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                                <img alt="Brand" src="images/logo_zpep_m.png" id="logo" width="410" height="51"></a>
+                        </header>
+                        <h3 class="text-center mb-1 text-muted display-6" style="font-size: 1.8rem;"><b id="logo_text" th:text="${title}"></b>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-12 mb-12" style="display: none" id="success">
+            <div class="col">
+                <div class="card mb-2 rounded-3 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="text-center" style="color: green; font-size: 2.5rem;">Ви успішно оформили електронну
+                            квитанцію</h2>
+
+                        <div class="col-lg-6 mx-auto">
+                            <p class="lead mb-4">Будь ласка, перевірте Вашу поштову скриньку для підтвердження адреси
+                                електронної пошти.</p>
+                            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                                <button type="button" class="btn btn-outline-secondary btn-lg px-4" id="reset">
+                                    Повернутися на головну сторінку
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="data">
+            <div class="row row-cols-1 row-cols-md-12 mb-12">
+                <div class="col">
+                    <div class="card mb-2 rounded-3 shadow-sm">
+                        <div class="card-body">
+                            <h4 style="margin-bottom: 20px;">Шановні споживачі! Ми пропонуємо скористатися
+                                сучасними онлайн-сервісами для отримання рахунків. Доставка рахунків на e-mail має
+                                низку переваг:</h4>
+                            <ul class="icon-list" style="margin-top: .5rem !important;">
+                                <li class="lead"><span>СУЧАСНО! Існує багато способів дізнаватися про стан розрахунків через інтернет. Ми можемо надсилати рахунки на Вашу електронну пошту, або ви можете сформувати рахунок самостійно в нашому <a
+                                        target="_blank" rel="noopener" href="https://billing.zpep.com.ua/">особистому кабінеті споживача</a>;</span>
+                                </li>
+                                <li class="lead">Швидкість отримання - рахунок буде направлено на вашу електронну адресу одразу після проведення розрахунку;
+                                </li>
+                                <li class="lead">Конфеденційність - електронна версія рахунку, гарантує Вам збереження персональних данних, на відміну від паперового рахунку;
+                                </li>
+                                <li class="lead">Надійність - електронний рахунок захищено від вандалів, які можуть пошкодити або знищити паперовий носій.
+                                </li>
+                            </ul>
+                            <h3>Готові відмовитись від зайвого паперу? Заповніть наступну анкету:</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-2 rounded-3 shadow-sm">
+                    <div class="card-body">
+                        <div class="row">
+                 <!--           <div class="col-12 col-sm-6">
+                                <label for="unit" class="h5 form-control-label">Підрозділ обслуговування</label>
+                                <select id="unit" name="unit" class="form-select" required>
+                                    <option disabled selected value> &#45;&#45; Оберіть підрозділ &#45;&#45;</option>
+                                </select>
+                                <div class="invalid-feedback" id="unit_error">
+                                    Зробіть вибір підрозділу обслуговування.
+                                </div>
+                            </div> -->
+                            <div class="col-12 col-sm-6">
+                                <label for="account" class="h5 form-control-label">Особовий рахунок</label>
+                                <input type="text" class="form-control" id="account" required>
+                                <div class="invalid-feedback" id="account_error">
+                                    Це поле обов'язкове для заповнення.
+                                </div>
+                            </div>
+                            <p></p>
+                            <div class="col-12">
+                                <label for="pay" class="h5 form-control-label">Увага! Перевірте будь ласка адресу в наступному полі!
+                                    Якщо це не Ваша адреса, введіть правильний особовий рахунок ТОВ "Запоріжжяелектропостачання"</label>
+                                <!-- <input type="text" class="form-control" id="pay" required> -->
+                                <div  id="pay" class="form-control">
+                                <small class="text-muted">(Тут буде ваша адреса.)</small>
+                                    <!-- <div class="invalid-feedback" id="pay_error">
+                                         Це поле обов'язкове для заповнення.-->
+                                </div>
+                              <!--  <div class="alert alert-danger" role="alert"
+                                     style="margin-top: .5rem !important; display: none" id="alert_ind">
+                                    <h5 class="alert-heading">Ідентифікація споживача не пройдена</h5>
+                                    <hr>
+                                    Невірний особовий рахунок чи остання оплата по особовому рахунку.<br>
+                                    Якщо не пройшла остання оплата, спробуйте попередню оплату.
+                                </div> -->
+                                <div class="alert alert-success" role="alert"
+                                     style="margin-top: .5rem !important; display: none" id="alert_ind_s">
+                                    <h5 class="alert-heading">Ідентифікація пройдена</h5>
+                                    <hr>
+                                    Ви вже зареєстровані.
+                                </div>
+                                <div class="alert alert-success" role="alert"
+                                     style="margin-top: .5rem !important; display: none" id="alert_ind_s1">
+                                    <h5 class="alert-heading">Ідентифікація пройдена</h5>
+                                    <hr>
+                                    Ви вже зареєстровані. Але не підтвердили введену Е-mail адресу, або відписалися від розсилки.
+                                    <hr>
+                                    Вам повторно відправлено лист підтвердження Е-mail адреси.
+                                    Будь ласка, перевірте свою електронну пошту і перейдіть за посиланням в листі для підтвердження.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-2 rounded-3 shadow-sm">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <label for="email" class="h5 form-control-label">Е-mail для отримання
+                                        квитанції</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                    <small class="text-muted">На Вашу електронну пошту прийде лист з проханням
+                                        підтвердження
+                                        введеної Е-mail адреси </small>
+                                    <div class="invalid-feedback" id="email_error">
+                                        Некоректно введений Е-mail
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="phone" class="h5 form-control-label">Мобільний телефон</label>
+                                    <input type="text" class="form-control" id="phone" required>
+                                    <small class="text-muted">Формат +38 (0XX) ХХХ-ХХ-ХХ</small>
+                                    <div class="invalid-feedback" id="phone_error">
+                                        Це поле обов'язкове для заповнення.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1.0rem !important;">
+                <div class="col-12 col-sm-7">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="concent">
+                        <label class="form-check-label" for="concent" id="concent_info">
+                            Я підтверджую, що відомості в даній анкеті відповідають дійсності на дату заповнення.
+                            Згоден/а на використання вказаних даних для повідомлення ТОВ "Запоріжжяелектропостачання" про
+                            стан
+                            мого особового рахунку, направлення платіжних документів, попереджень (повідомлень) на
+                            вказану
+                            адресу електронної пошти, номер телефону. Даю згоду на відмову в отриманні платіжного
+                            документу
+                            (рахунку, квитанції) у паперовій формі.
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-5">
+                    <div style="margin-top: 0.5rem !important;" class="g-recaptcha d-flex justify-content-center"
+                         data-sitekey="6LdXdXIjAAAAAHsm6sYvKNL3tuwGZfn1UMrUhmWm"
+                         data-callback="onReCaptchaSuccess" data-expired-callback="onReCaptchaExpired"></div>
+                    <div id="captchaError" class="alert alert-warning"
+                         style="display:none; margin-top: 10px;"></div> 
+                    <script th:inline="javascript">
+                        var onReCaptchaSuccess = function (response) {
+                            $("#captchaError").hide();
+                        };
+                        var onReCaptchaExpired = function (response) {
+                            $("#captchaError").html("reCaptcha закінчився. Вирішіть нову").show();
+                            grecaptcha.reset();
+                        };
+                    </script>
+                    <hr class="my-3">
+                    <button class="w-100 btn btn-primary btn-lg" type="button" style="margin-bottom: .5rem !important;"
+                            id="dd"><b>Відправити</b>
+                    </button>
+                    <div class="text-center" style="display: none" id="wait">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+                crossorigin="anonymous"></script> -->
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"></script>
+        <script type='text/javascript' src='js/jquery.mask.min.js'></script>
+        <script type='text/javascript' src='js/js.js'></script>
+        <!-- Global site tag (gtag.js) - Google Analytics
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-73028929-4"></script>
+       <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-73028929-4');
+        </script> -->
+
+    </div>
+</form>
+</body>
+</html>
